@@ -3,6 +3,10 @@ Simple, flexible rule engine for the amazing [react-jsonschema-form](https://git
 
 If you are familiar with [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) and interested in adding some dynamism to the forms, for example, hiding/disabling parts of the form, adding extra options to select, radio buttons, changing data and many more, it's worth a try.
 
+npmjs package page: coming soon!
+
+[Online demo](https://ruled-jsonschema-form-demo.herokuapp.com)
+
 Example:
 
 ```typescript
