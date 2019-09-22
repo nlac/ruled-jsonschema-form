@@ -1,0 +1,47 @@
+{
+	"name": "ruled-jsonschema-form",
+	"version": "1.0.0",
+	"description": "a rule engine for react-jsonschema-form",
+	"author": "Laszlo Nemethi <nlacsoft@gmail.com>",
+	"license": "MIT",
+	"keywords": [
+		"rule",
+		"rule engine",
+		"react-jsonschema-form",
+		"json",
+		"json-schema",
+		"typescript"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nlac/ruled-jsonschema-form.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nlac/ruled-jsonschema-form/issues"
+	},
+	"homepage": "https://github.com/nlac/ruled-jsonschema-form#readme",
+	"main": "lib/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "rm -rf ./lib && tsc"
+	},
+	"heroku-run-build-script": true,
+	"engines": {
+		"npm": ">=2.14.7",
+		"node": ">=6"
+	},
+	"peerDependencies": {
+		"react": ">=16",
+		"react-jsonschema-form": ">=1.7.0"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@types/react": "^16.9.2",
+		"@types/react-dom": "16.8.5",
+		"@types/react-jsonschema-form": "^1.6.4",
+		"react": "^16.9.0",
+		"react-dom": "^16.8.6",
+		"react-jsonschema-form": "^1.8.0",
+		"typescript": "3.5.3"
+	}
+}
