@@ -5,7 +5,6 @@
 /example/node_modules
 
 # production
-/lib
 /example/build
 
 package-lock.json
