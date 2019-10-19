@@ -5,7 +5,9 @@ If you are familiar with [react-jsonschema-form](https://github.com/rjsf-team/re
 
 [npmjs package](https://www.npmjs.com/package/ruled-jsonschema-form)
 
-[Online demo](https://ruled-jsonschema-form-demo.herokuapp.com)
+[online demo](https://ruled-jsonschema-form-demo.herokuapp.com)
+
+[ffmpegui](https://ffmpegui.herokuapp.com) - experimental project based on ruled-jsonschema-form
 
 Example + some documentation:
 

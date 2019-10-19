@@ -1,6 +1,6 @@
 {
 	"name": "ruled-jsonschema-form",
-	"version": "1.0.3",
+	"version": "1.0.5",
 	"description": "a rule engine for react-jsonschema-form",
 	"author": "Laszlo Nemethi <nlacsoft@gmail.com>",
 	"license": "MIT",

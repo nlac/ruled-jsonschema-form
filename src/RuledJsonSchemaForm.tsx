@@ -1,3 +1,4 @@
+// v1.05
 import React from "react"
 import Form from "react-jsonschema-form"
 import ArrayField from "react-jsonschema-form/lib/components/fields/ArrayField"
@@ -13,6 +14,14 @@ class FormRule {
 	active: boolean = true
 }
 
+const cloneProps = (exp:string, pattern: RegExp, obj:any) => {
+	if (exp.match(pattern) && Utils.isCloneable(obj)) {
+		for (let key in obj) {
+			obj[key] = Utils.clone(obj[key])
+		}
+	}
+}
+
 class FormRuleEngine {
 
 	evaluate = (exp: string, ctx: any) => {
@@ -20,23 +29,18 @@ class FormRuleEngine {
 		// Destructing context to be easily accessible for the expression in its scope
 		const {
 			formContext,   // "global" Form property, can hold anything
+			idSchema,      // id schema of the actually processed node
 			schema,        // schema of the actually processed node
 			uiSchema,      // ui schema of the actually processed node
-			idSchema,      // id schema of the actually processed node
 			data,          // data of the actually processed node
 			arrayUiSchema  // in case of the processed item is an array element, we offer here the array's uiSchema
 		} = ctx
 
-		// creating copies for the change detection
-		for (let key in uiSchema) {
-			uiSchema[key] = Utils.simpleClone(uiSchema[key])
-		}
-
-		if (schema.properties) {
-			for (let key in schema.properties) {
-				schema.properties[key] = Utils.simpleClone(schema.properties[key])
-			}
-		}
+		// cloning props of context members, this way change detection will be possible
+		cloneProps(exp, /\bschema\b/, schema)
+		cloneProps(exp, /\buiSchema\b/, uiSchema)
+		cloneProps(exp, /\barrayUiSchema\b/, arrayUiSchema)
+		cloneProps(exp, /\bdata\b/, data)
 
 		try {
 			// Some think eval() is evil,

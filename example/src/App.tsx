@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { JSONSchema6 } from "json-schema"
-import RuledJsonSchemaForm, { FormRule } from 'ruled-jsonschema-form'
+import RuledJsonSchemaForm, { FormRule } from './RuledJsonSchemaForm'
 
 // Schema
 const schema = {
 	type: "object",
-	title: "Personal details",
+	title: "ruled-jsonschema-form demo",
 	properties: {
 		name: {
 			type: "string",
@@ -59,9 +59,9 @@ const uiSchema = {
 		"ui:options": {
 			formRules: [
 				{
-					desc: "some final actions when 'football' has been typed",
+					desc: "some final actions when 'football' has been typed as hobby",
 					if: "data && data.some(d => d === 'football')",
-					then: "uiSchema['ui:options'].removable = false; uiSchema['ui:description'] = 'Football is amazing! Keep it.'",
+					then: "uiSchema['ui:options'].removable = false; uiSchema['ui:description'] = 'Football is amazing! Keep it:)'",
 					active: true
 				} as FormRule
 			]
@@ -70,7 +70,7 @@ const uiSchema = {
 			"ui:options": {
 				formRules: [
 					{
-						desc: "disabling input field as 'football' has been written",
+						desc: "disabling the input field where 'football' has been written",
 						if: "data === 'football'",
 						then: "uiSchema['ui:disabled'] = true",
 						active: true
@@ -92,6 +92,12 @@ const uiSchema = {
 				desc: "reseting + disabling job field if number of hobbies > 3",
 				if: "data.hobbies && (data.hobbies.length > 3)",
 				then: "delete data.job; uiSchema.hobbies['ui:description'] = 'You have a lot of time for hobbies! No way you do have a job:)'; uiSchema.job['ui:disabled'] = true; uiSchema.hobbies['ui:help'] = 'hint: add football'",
+				active: true
+			} as FormRule,
+			{
+				desc: "final action: set Thank you as hint",
+				if: "data.hobbies && data.hobbies.some(d => d === 'football')",
+				then: "uiSchema.hobbies['ui:help'] = 'Thank you for trying this demo!'",
 				active: true
 			} as FormRule,
 			{
